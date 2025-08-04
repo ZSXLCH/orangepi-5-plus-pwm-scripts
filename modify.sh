@@ -20,20 +20,6 @@ make -j10 || {
     exit 1
 }
 
-# 安装内核模块
-echo "安装内核模块..."
-sudo make modules_install || {
-    echo "内核模块安装失败"
-    exit 1
-}
-
-# 安装内核镜像
-echo "安装内核镜像..."
-sudo make install || {
-    echo "内核镜像安装失败"
-    exit 1
-}
-
 # 安装设备树
 echo "正在安装设备树..."
 sudo make dtbs_install INSTALL_DTBS_PATH=/boot/dtb/ || {
