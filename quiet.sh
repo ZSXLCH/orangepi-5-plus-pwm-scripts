@@ -13,9 +13,9 @@ sudo cp -f /root/pwm/quiet/rk3588-orangepi-5-plus.dts arch/arm64/boot/dts/rockch
     exit 1
 }
 
-# 仅编译指定的DTS文件
+# 编译指定设备树
 echo "开始编译设备树文件..."
-make -j10 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dtb || {
+make dtbs -j$(nproc) DTS=arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts || {
     echo "设备树编译失败"
     exit 1
 }
